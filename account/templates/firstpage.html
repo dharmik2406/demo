@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/firstpage.css' %}">
+    <title>GoShop</title>
+</head>
+<body>
+    <div class="container">
+        <img src="{% static '/images/goshoplogo.png' %}" alt="logo" class="logo">
+        <a href="{% url 'login' %}" id="startbtn" class="attractive-btn">Click</a>
+    </div>
+</body>
+<div>
+    <img src="{% static 'images/products/manager.png' %}" class="rounded-circle" alt="User" width="50" height="50">
+</div>
+</html>
+<style>
+    /* General styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    text-align: center;
+    padding-top: 5rem;
+}
+
+.logo {
+    margin-top: 10rem;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+}
+
+#startbtn {
+    background-color: #4CAF50; /* Green background */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect */
+.attractive-btn:hover {
+    background-color: #45a049; /* Darker green */
+    transform: scale(1.05); /* Slightly enlarge */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+}
+
+/* Focus effect */
+.attractive-btn:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.6); /* Blue glow when focused */
+}
+
+/* Active effect */
+.attractive-btn:active {
+    transform: scale(1.02); /* Slightly reduce size on click */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Normal shadow on click */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    /* Adjust the logo and button on smaller screens */
+    .logo {
+        width: 80%;
+    }
+
+    #startbtn {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further adjustments for very small screens */
+    .logo {
+        width: 90%;
+    }
+
+    #startbtn {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+}
+
+</style>

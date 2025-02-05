@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Logo outside of the register-container -->
+        <img src="{% static 'images/goshoplogo.png' %}" alt="logo" class="logo">
+
+        <div class="register-container">
+            <h2>Sign Up</h2>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <form method="POST">
+                {% csrf_token %}
+                
+                <!-- Username -->
+                <div class="mb-3">
+                    <label for="id_username" class="form-label">Username</label>
+                    {{ form.username }}
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="id_email" class="form-label">Email</label>
+                    {{ form.email }}
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+                    <label for="id_password" class="form-label">Password</label>
+                    {{ form.password }}
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="mb-3">
+                    <label for="id_confirm_password" class="form-label">Confirm Password</label>
+                    {{ form.confirm_password }}
+                </div>
+
+                <!-- Register Button -->
+                <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+
+                <!-- Link to login page -->
+                <div class="text-center mt-3">
+                    <p id="slink">Already have an account?  <a href="{% url 'login' %}" id="slink">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .alert {
+        padding: 20px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        color: rgb(162, 67, 67);
+        opacity: 1;
+        transition: opacity 0.6s;
+        position: relative;
+    }
+
+    /* Success alert */
+    .alert-success {
+        background-color: #d4edda;
+        color: #155724;
+        border-color: #c3e6cb;
+    }
+
+    /* Error alert */
+    .alert-error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border-color: #f5c6cb;
+    }
+
+    /* Warning alert */
+    .alert-warning {
+        background-color: #fff3cd;
+        color: #856404;
+        border-color: #ffeeba;
+    }
+
+    /* Info alert */
+    .alert-info {
+        background-color: #d1ecf1;
+        color: #0c5460;
+        border-color: #bee5eb;
+    }
+
+    .register-container {
+        max-width: 400px;
+        margin: 30px auto;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+    }
+    .register-container h2 {
+        color: #28a745; /* Green color */
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .form-label {
+        color: #343a40; /* Black color */
+    }
+    .btn-primary {
+        background-color: #28a745; /* Green button */
+        border: none;
+    }
+    .btn-primary:hover {
+        background-color: #218838; /* Darker green on hover */
+    }
+    .text-center a {
+        color: #343a40; /* Black text for links */
+    }
+    .text-center a:hover {
+        text-decoration: underline;
+    }
+    .logo {
+        margin-top: 2rem;
+        margin-left: 33.5rem;
+        display: block;
+        width: 15rem;
+    }
+    #slink {
+        text-decoration: none;
+        color: #28a745;
+        margin-left: 2rem;
+    }
+    #slink:hover {
+        text-decoration: underline;
+    }
+</style>

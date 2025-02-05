@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+</head>
+<body>
+    <h1>Checkout</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <!-- Add payment and shipping details here -->
+        <button type="submit">Complete Order</button>
+    </form>
+</body>
+</html>
